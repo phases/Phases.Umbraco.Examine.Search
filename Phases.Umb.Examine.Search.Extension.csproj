@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ContentTargetFolders>.</ContentTargetFolders>
+    <Product>Phases.Umb.Examine.Search.Extension</Product>
+    <PackageId>Phases.Umb.Examine.Search.Extension</PackageId>
+    <Title>Phases.Umb.Examine.Search.Extension</Title>
+    <Description>Elevate your Umbraco website with our Advanced Search Package, featuring search extension and highlighting methods</Description>
+    <PackageTags>umbraco plugin package</PackageTags>
+    <Version>1.0.0-beta003</Version>
+    <Authors>Phases ,Jerin</Authors>
+    <Company>Phases India Technology Solutions Private Limited</Company>
+    <RepositoryUrl>https://techops.phases.dk/mcst/umbraco-packages/phases.umbraco.examine.search.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Examine" Version="3.1.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
+    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00016" />
+    <PackageReference Include="Lucene.Net.Highlighter" Version="4.8.0-beta00016" />
+    <PackageReference Include="Lucene.Net.Suggest" Version="4.8.0-beta00016" />
+    <PackageReference Include="NTextCat" Version="0.3.65" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="10.7.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.7.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Core14.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Core14.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

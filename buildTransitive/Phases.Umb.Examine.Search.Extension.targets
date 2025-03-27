@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PhasesUmbracoExamineSearchExtensionContentFilesPath>$(MSBuildThisFileDirectory)..\Core14.xml</PhasesUmbracoExamineSearchExtensionContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyPhasesUmbracoExamineSearchExtensionAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <PhasesUmbracoExamineSearchExtensionContentFiles Include="$(PhasesUmbracoExamineSearchExtensionContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying Phases.Umb.Examine.Search.Extension files: $(PhasesUmbracoExamineSearchExtensionContentFilesPath) - #@(PhasesUmbracoExamineSearchExtensionContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(PhasesUmbracoExamineSearchExtensionContentFiles)" DestinationFiles="@(PhasesUmbracoExamineSearchExtensionContentFiles->'$(MSBuildProjectDirectory)\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearPhasesUmbracoExamineSearchExtensionAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <PhasesUmbracoExamineSearchExtensionDir Include="$(MSBuildProjectDirectory)\App_Plugins\Phases.Umb.Examine.Search.Extension\" />
+    </ItemGroup>
+    <Message Text="Clear old Phases.Umb.Examine.Search.Extension data" Importance="high" />
+    <RemoveDir Directories="@(PhasesUmbracoExamineSearchExtensionDir)" />
+  </Target>
+</Project>
